@@ -121,10 +121,11 @@
 .hero__text_colour {
   margin-bottom: 1.5rem;
   min-height: 1.1em;
+  color: var(--dim);
 }
 
 .hero__text_colour .sep {
-  color: var(--dim);
+  color: var(--line-ink);
   margin-inline: .5rem;
 }
 
@@ -220,6 +221,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2.5rem;
+}
+
+.hero .text_colour {
+  color: gray;
 }
 
 .hero__facts-row.tags {
