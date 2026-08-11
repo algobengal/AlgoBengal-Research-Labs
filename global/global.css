@@ -1,0 +1,232 @@
+:root {
+  --ink: #101A2C;
+  --ink-2: #1A2740;
+  --paper: #EEF0F3;
+  --card: #FAFBFC;
+  --text: #1C2431;
+  --dim: #5E6774;
+  --on-ink: #E8EBF1;
+  --on-ink-dim: #9AA6B7;
+  --gold: #4F74AC;
+  --gold-soft: rgba(79, 116, 172, 0.16);
+  --sun: #8AA9D6;
+  --line: rgba(28, 36, 49, 0.12);
+  --line-ink: rgba(232, 235, 241, 0.13);
+  --serif: "Jost", system-ui, sans-serif;
+  --sans: "Jost", system-ui, sans-serif;
+  --mono: "Space Mono", ui-monospace, monospace;
+  --container: 1120px;
+  --pad: clamp(1.25rem, 5vw, 2.5rem);
+  --sec: clamp(4.5rem, 9vw, 8rem);
+}
+#splash-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--paper);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.splash-logo {
+  width: 400px;
+  height: auto;
+  transform-origin: top left;
+  transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+#splash-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    display: block;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.text_colour {
+  font-family: var(--mono);
+  font-size: .75rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.on-ink .text_colour {
+  color: var(--gold);
+}
+.top_spacing{
+    margin-top: 100px;
+}
+/* ---------- SECTION SHELL ---------- */
+.section {
+  padding-block: var(--sec);
+  scroll-margin-top: 80px;
+}
+
+.section--ink {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+.section__head {
+  max-width: 44rem;
+  margin-bottom: clamp(2.5rem, 5vw, 3.75rem);
+}
+
+.section__head .text_colour {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.section__head h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+}
+
+.section__head p {
+  margin-top: 1.1rem;
+  color: var(--dim);
+  font-size: 1.08rem;
+}
+
+.section--ink .section__head p {
+  color: var(--on-ink-dim);
+}
+
+/* ---------- BUTTONS ---------- */
+.btn {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: .95rem;
+  padding: .8rem 1.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  border: 1px solid transparent;
+}
+
+.btn--primary {
+  background: var(--gold);
+  color: var(--card);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px -10px rgba(79, 116, 172, .55);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.btn--ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.section--ink .btn--ghost {
+  color: var(--on-ink);
+  border-color: var(--line-ink);
+}
+
+.section--ink .btn--ghost:hover {
+  border-color: var(--on-ink);
+  color: var(--on-ink);
+}
+
+.btn--dark {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+.btn--dark:hover {
+  transform: translateY(-2px);
+  background: var(--ink-2);
+}
+
+/* ---------- ENTRANCE ANIMATION ---------- */
+.rise {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: rise .7s cubic-bezier(.2, .7, .3, 1) forwards;
+}
+
+.d1 { animation-delay: .05s; }
+.d2 { animation-delay: .15s; }
+.d3 { animation-delay: .25s; }
+.d4 { animation-delay: .35s; }
+.d5 { animation-delay: .45s; }
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes splashPulse {
+  from { transform: scale(0.95); opacity: 0.75; }
+  to   { transform: scale(1.05); opacity: 1; }
+}
+@media(prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { animation: none; opacity: 1; transform: none; }
+  * { transition: none !important; }
+}

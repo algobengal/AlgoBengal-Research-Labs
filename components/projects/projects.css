@@ -1,0 +1,89 @@
+#research {
+  background: var(--paper);
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--line);
+}
+
+.expertise {
+  border-top: 1px solid var(--line);
+}
+
+.xrow {
+  display: grid;
+  grid-template-columns: auto minmax(12rem, 16rem) 1fr auto ;
+  gap: 1.25rem 2rem;
+  align-items: center;
+  color: inherit;
+  padding: clamp(1.5rem, 3vw, 2.25rem) .5rem;
+  border-bottom: 1px solid var(--line);
+  transition: background .2s ease, padding-left .2s ease;
+  cursor: default;
+}
+
+/*.xrow:hover {
+  background: rgba(255, 255, 255, 0.05);
+  padding-left: 1.1rem;
+}
+*/
+.xrow__num {
+  font-family: var(--mono);
+  font-size: .8rem;
+  letter-spacing: .05em;
+  color: var(--gold);
+}
+
+.xrow__title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.1vw, 1.7rem);
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+
+.xrow__desc {
+  color: var(--dim);
+  font-size: 1rem;
+  line-height: 1.55;
+  max-width: 36rem;
+}
+
+.xrow__go {
+  justify-self: end;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-family: var(--mono);
+  font-size: .75rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.xrow__go svg {
+  width: 15px;
+  height: 15px;
+  transition: transform .2s ease;
+}
+
+.xrow:hover .xrow__go svg {
+  transform: translateX(4px);
+}
+
+@media(max-width: 900px) {
+  .xrow {
+    grid-template-columns: auto 1fr;
+    gap: .55rem 1.1rem;
+    align-items: baseline;
+  }
+  .xrow__desc {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+  .xrow__go {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: .2rem;
+  }
+}
