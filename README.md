@@ -1,2 +1,2 @@
 ﻿# algobengal
-# AlgoBengal-Research-Labs 
+# AlgoBengal-Research-Labs
