@@ -1,0 +1,8 @@
+/* Keep all five navigation items available on small screens. */
+.nav__pill-container { max-width: calc(100vw - 2rem); }
+.nav__pill-link { white-space: nowrap; }
+@media(max-width: 640px) {
+  .nav__pill-container { overflow-x: auto; overscroll-behavior-x: contain; gap: .9rem; padding: .55rem 1rem; scrollbar-width: none; }
+  .nav__pill-container::-webkit-scrollbar { display: none; }
+  .nav__pill-link { font-size: .78rem; }
+}

@@ -1,0 +1,4 @@
+/* Minimal additions for the consulting introduction. The original hero.css remains unchanged. */
+.hero__points p { margin: 0; }
+.hero__intro { color: var(--text); font-size: clamp(1.03rem, 1.5vw, 1.2rem); line-height: 1.55; }
+.hero__specialties { color: var(--dim); font-size: .88rem; line-height: 1.7; }

@@ -66,3 +66,12 @@
     order: -1;
   }
 }
+/* Collaborator portraits and details use the existing section palette. */
+#collaborations .collab { grid-template-columns: 150px minmax(0, 1fr); align-items: center; }
+.collab__portrait { display:block; width:84px; height:84px; object-fit:cover; object-position: center 20%; border-radius:50%; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.3); }
+.collab__affiliation { font-weight:500; font-size:.94rem; margin-top:.15rem; }
+.collab__description { font-size:.94rem; opacity:.85; margin-top:.4rem; }
+.collab__profile-link { display:inline-block; margin-top:.55rem; font-size:.9rem; color:#fff; border-bottom:1px solid rgba(255,255,255,.6); }
+.collab__profile-link:hover { border-color: #fff; }
+#collaborations .text_colour { color: var(--paper); }
+@media(max-width:640px) { #collaborations .collab { grid-template-columns: 100px minmax(0, 1fr); gap: 1rem; } .collab__portrait { width:75px; height:75px; } }
